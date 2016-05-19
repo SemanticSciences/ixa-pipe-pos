@@ -15,17 +15,13 @@
 
 package eus.ixa.ixa.pipe.pos;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
-import java.util.concurrent.ConcurrentHashMap;
-
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * POS tagging module based on Apache OpenNLP machine learning API.
@@ -102,8 +98,7 @@ public class StatisticalTagger {
    */
   public final List<String> posAnnotate(final String[] tokens) {
     final String[] annotatedText = this.posTagger.tag(tokens);
-    final List<String> posTags = new ArrayList<String>(
-        Arrays.asList(annotatedText));
+    final List<String> posTags = new ArrayList<>(Arrays.asList(annotatedText));
     return posTags;
   }
   
